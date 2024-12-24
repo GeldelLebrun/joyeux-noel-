@@ -3,22 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>joyeux noel</title>
-</head>
-      <title>Joyeux Noël</title
-    <style>                    
-<body>
-       
-        /* On applique un style global au body pour centrer tout le contenu */
-         {
+    <title>Jjoyeux noel </title>
+    <style>
+        body {
+            background-color: #000000; /* Noir */
+            color: #FFFFFF; /* Blanc pour le texte */
+            font-family: Arial, sans-serif; /* Police par défaut */
             display: flex;
-            justify-content: center; /* Centrer horizontalement */
-            align-items: center; /* Centrer verticalement */
-            height: 100vh; /* Utiliser toute la hauteur de la fenêtre */
-            margin: 0; /* Retirer les marges par défaut */
-            flex-direction: column; /* Disposition verticale des éléments */
-  <img src="istockphoto-1434827051-1024x1024.jpg " alt=" " align= "center" S>
-</style>
-    
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .welcome-message {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .click-here {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+
+        .arrow {
+            margin-top: 10px;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(10px);
+            }
+        }
+
+        .bell {
+            font-size: 50px;
+            margin-top: 20px;
+            animation: shake 1s infinite;
+            cursor: pointer; /* Ajout du curseur pour indiquer que la cloche est cliquable */
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(0); }
+            75% { transform: translateX(5px); }
+            100% { transform: translateX(0); }
+        }
+
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: none; /* Cacher la vidéo par défaut */
+            justify-content: center;
+            align-items: center;
+        }
+
+        #video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-message">
+        <h1>Bienvenue! Veuillez <span class="click-here">cliquer sur la cloche<span class="arrow">⬇</span></span></h1>
+    </div>
+    <div class="bell" id="bell">
+        🛎️
+    </div>
+
+    <!-- Conteneur pour la vidéo -->
+    <div id="video-container">
+        <video id="video" src="c:\Users\gelde\Downloads\jingle-bells-song-christmas-kids-toddlers-dance-fun-activities-holiday-joy-1080-publer.io.mp4" controls autoplay></video>
+    </div>
+
+    <script>
+        const bell = document.getElementById('bell');
+        const videoContainer = document.getElementById('video-container');
+        const video = document.getElementById('video');
+
+        bell.addEventListener('click', () => {
+            // Afficher la vidéo en plein écran
+            videoContainer.style.display = 'flex';
+            video.play();
+        });
+
+        // Optionnel : arrêter la vidéo et cacher le conteneur si nécessaire
+        video.addEventListener('ended', () => {
+            videoContainer.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
+
+
